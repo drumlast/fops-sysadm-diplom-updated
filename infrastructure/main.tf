@@ -30,6 +30,14 @@ resource "yandex_vpc_route_table" "public" {
   }
 }
 
+resource "yandex_vpc_route_table" "private" {
+  network_id = yandex_vpc_network.main.id
+  static_route {
+    destination_prefix = "0.0.0.0/0"
+    gateway_id        = yandex_vpc_gateway.internet.id
+  }
+}
+
 resource "yandex_vpc_subnet" "public" {
   name           = "public-subnet"
   zone           = "ru-central1-a"
