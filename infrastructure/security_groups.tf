@@ -88,7 +88,7 @@ resource "yandex_vpc_security_group" "alb" {
   ingress {
     protocol       = "TCP"
     description    = "Allow HTTP from Yandex Health Checks"
-    port           = 30080
+    port           = 80
     v4_cidr_blocks = ["130.193.0.0/16", "178.154.0.0/16"]
   }
 
