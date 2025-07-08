@@ -89,7 +89,7 @@ resource "yandex_vpc_security_group" "alb" {
     protocol       = "TCP"
     description    = "Allow HTTP from Yandex Health Checks"
     port           = 80
-    v4_cidr_blocks = ["10.128.0.0/24", "10.129.0.0/24", "10.130.0.0/24", "10.140.0.0/24"]
+    v4_cidr_blocks = ["130.193.0.0/16", "178.154.0.0/16"]
   }
 
   egress {
