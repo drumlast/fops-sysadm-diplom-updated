@@ -47,7 +47,7 @@ resource "yandex_alb_virtual_host" "vh" {
 resource "yandex_alb_load_balancer" "alb" {
   name       = "web-alb"
   network_id = yandex_vpc_network.main.id
-  security_group_ids = [yandex_vpc_security_group.alb.id]
+  security_group_ids = [yandex_vpc_security_group.alb_sg.id]
 
   allocation_policy {
     location {
