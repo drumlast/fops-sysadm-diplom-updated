@@ -72,6 +72,7 @@ resource "yandex_vpc_security_group" "web" {
     from_port      = 0
     to_port        = 65535
   }
+}
 
 resource "yandex_vpc_security_group" "alb_sg" {
   name       = "alb-sg"
