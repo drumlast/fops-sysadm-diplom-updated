@@ -6,7 +6,7 @@ resource "yandex_vpc_security_group" "bastion" {
     protocol       = "TCP"
     description    = "Allow SSH from anywhere"
     port           = 22
-    v4_cidr_blocks = ["46.228.7.154/32"]
+    v4_cidr_blocks = ["188.242.84.65/32"]
   }
 
    egress {
@@ -35,7 +35,7 @@ resource "yandex_vpc_security_group" "nat" {
   ingress {
     protocol       = "TCP"
     description    = "Allow SSH from my IP"
-    v4_cidr_blocks = ["46.228.7.154/32"]
+    v4_cidr_blocks = ["188.242.84.65/32"]
     port           = 22
   }
 
@@ -55,7 +55,7 @@ resource "yandex_vpc_security_group" "web" {
   ingress {
     protocol       = "TCP"
     description    = "Allow SSH from bastion or your IP"
-    v4_cidr_blocks = ["10.10.1.0/24", "46.228.7.154/32"]
+    v4_cidr_blocks = ["10.10.1.0/24", "188.242.84.65/32"]
     port           = 22
   }
 
@@ -77,6 +77,6 @@ resource "yandex_vpc_security_group" "web" {
   protocol       = "TCP"
   description    = "Allow HTTP from ALB and bastion"
   port           = 80
-  v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24", "IP-ALB", "IP-BASTION"]
+  v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24", "130.193.0.0/16", "178.154.0.0/16"]
 }
 }
