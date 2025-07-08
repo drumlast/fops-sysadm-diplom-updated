@@ -73,14 +73,6 @@ resource "yandex_vpc_security_group" "web" {
     to_port        = 65535
   }
 
-  ingress {
-  protocol       = "TCP"
-  description    = "Allow HTTP from ALB and bastion"
-  port           = 80
-  v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24"]
-}
-}
-
 resource "yandex_vpc_security_group" "alb_sg" {
   name       = "alb-sg"
   network_id = yandex_vpc_network.main.id
