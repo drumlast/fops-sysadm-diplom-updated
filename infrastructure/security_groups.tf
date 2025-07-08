@@ -81,8 +81,8 @@ resource "yandex_vpc_security_group" "web" {
 }
 }
 
-resource "yandex_vpc_security_group" "web_alb" {
-  name       = "alb-sg"
+resource "yandex_vpc_security_group" "alb" {
+  name       = "alb-sg-renamed"
   network_id = yandex_vpc_network.main.id
 
   ingress {
