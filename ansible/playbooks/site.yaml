@@ -1,13 +1,16 @@
 - hosts: webservers
+  become: true
   roles:
     - nginx
 
 - hosts: monitoring
+  become: true
   roles:
     - prometheus
     - grafana
 
 - hosts: logging
+  become: true
   roles:
     - elasticsearch
     - kibana
