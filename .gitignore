@@ -1,0 +1,9 @@
+terraform.tfvars
+*.tfvars
+*.BAK
+*.not_use_yet
+ansible/*.retry
+ansible/.vault_pass
+ansible/.env
+ansible/ssh_config
+ansible/keys/
