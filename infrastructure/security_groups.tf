@@ -77,7 +77,7 @@ resource "yandex_vpc_security_group" "web" {
   protocol       = "TCP"
   description    = "Allow HTTP from ALB and bastion"
   port           = 80
-  v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24", "130.193.0.0/16", "IP-BASTION"]
+  v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24"]
 }
 }
 
