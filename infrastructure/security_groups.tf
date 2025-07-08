@@ -76,7 +76,27 @@ resource "yandex_vpc_security_group" "web" {
   ingress {
   protocol       = "TCP"
   description    = "Allow HTTP from ALB and bastion"
-  port           = 30080
+  port           = 80
   v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24", "130.193.0.0/16", "178.154.0.0/16"]
 }
+}
+
+resource "yandex_vpc_security_group" "alb" {
+  name       = "alb-sg"
+  network_id = yandex_vpc_network.main.id
+
+  ingress {
+    protocol       = "TCP"
+    description    = "Allow HTTP from Yandex Health Checks"
+    port           = 30080
+    v4_cidr_blocks = ["130.193.0.0/16", "178.154.0.0/16"]
+  }
+
+  egress {
+    protocol       = "ANY"
+    description    = "Allow all outbound"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
+  }
 }
