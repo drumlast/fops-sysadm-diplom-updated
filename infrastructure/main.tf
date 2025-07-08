@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     yandex = {
-      source  = "yandex-cloud/yandex"
+      source = "yandex-cloud/yandex"
       version = ">= 0.87"
     }
   }
@@ -14,38 +14,22 @@ provider "yandex" {
   zone      = "ru-central1-a"
 }
 
-# VPC
 resource "yandex_vpc_network" "main" {
-  name = "main-network"
+  name = "main-vpc"
 }
-
-# Интернет-шлюз
 resource "yandex_vpc_gateway" "internet" {
   name = "internet-gateway"
   shared_egress_gateway {}
 }
 
-# Публичная маршрутная таблица
 resource "yandex_vpc_route_table" "public" {
   network_id = yandex_vpc_network.main.id
-
   static_route {
     destination_prefix = "0.0.0.0/0"
-    gateway_id         = yandex_vpc_gateway.internet.id
+    gateway_id        = yandex_vpc_gateway.internet.id
   }
 }
 
-# Приватная маршрутная таблица (через NAT)
-resource "yandex_vpc_route_table" "private" {
-  network_id = yandex_vpc_network.main.id
-
-  static_route {
-    destination_prefix = "0.0.0.0/0"
-    next_hop_address   = yandex_compute_instance.bastion.network_interface.0.ip_address
-  }
-}
-
-# Публичная подсеть (ALB, Grafana, Kibana, Bastion)
 resource "yandex_vpc_subnet" "public" {
   name           = "public-subnet"
   zone           = "ru-central1-a"
@@ -54,7 +38,6 @@ resource "yandex_vpc_subnet" "public" {
   route_table_id = yandex_vpc_route_table.public.id
 }
 
-# Приватная подсеть (Web, Prometheus, Elasticsearch)
 resource "yandex_vpc_subnet" "private" {
   name           = "private-subnet"
   zone           = "ru-central1-a"

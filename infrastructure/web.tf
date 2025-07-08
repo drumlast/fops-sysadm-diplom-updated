@@ -1,41 +1,18 @@
-
-resource "yandex_vpc_security_group" "web" {
-  name       = "web-sg"
-  network_id = yandex_vpc_network.main.id
-
-  ingress {
-    protocol       = "TCP"
-    port           = 80
-    v4_cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    protocol         = "TCP"
-    port             = 22
-    security_group_id = yandex_vpc_security_group.bastion.id
-  }
-
-  egress {
-    protocol       = "ANY"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
 resource "yandex_compute_instance" "web" {
   count       = 2
   name        = "web-${count.index + 1}"
   platform_id = "standard-v3"
-  zone        = element(["ru-central1-a", "ru-central1-b"], count.index)
+  zone        = "ru-central1-a"
 
   resources {
     cores         = 2
-    memory        = 1
+    memory        = 2
     core_fraction = 20
   }
 
   boot_disk {
     initialize_params {
-      image_id = var.image_id
+      image_id = "fd876gids9srs8ma0592"
       size     = 10
     }
   }
@@ -47,10 +24,6 @@ resource "yandex_compute_instance" "web" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
-  }
-
-  labels = {
-    role = "web"
+    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 }
