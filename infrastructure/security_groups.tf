@@ -94,6 +94,6 @@ resource "yandex_vpc_security_group" "alb_sg" {
 
   egress {
     protocol       = "ANY"
-    v4_cidr_blocks = ["0.0.0.0/0"]
+    v4_cidr_blocks = ["0.0.0.0/0", "10.10.2.0/24"]
   }
 }
