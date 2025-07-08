@@ -3,5 +3,5 @@ output "bastion_ip" {
 }
 
 output "alb_ip" {
-  value = yandex_alb_load_balancer.alb.listener[0].endpoint[0].address[0].external_ipv4_address
+  value = yandex_alb_load_balancer.web.listener[0].endpoint[0].address[0].external_ipv4_address
 }
