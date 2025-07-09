@@ -19,7 +19,7 @@ resource "yandex_compute_instance" "nat" {
   network_interface {
     subnet_id          = yandex_vpc_subnet.public.id
     nat                = true
-    security_group_ids = [yandex_vpc_security_group.bastion.id]
+    security_group_ids = [yandex_vpc_security_group.nat.id]
   }
 
   metadata = {
