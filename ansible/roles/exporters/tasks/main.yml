@@ -3,14 +3,14 @@
 - name: Install Node Exporter
   community.docker.docker_container:
     name: node_exporter
-    image: prom/node-exporter
+    image: quay.io/prometheus/node-exporter:latest
     ports:
       - "9100:9100"
     restart_policy: always
 
 - name: Install Nginx Log Exporter
   community.docker.docker_container:
-    name: nginxlogexporter
+    name: adam21b/nginxlogexporter
     image: kikill95/nginx-log-exporter
     ports:
       - "9113:9113"
