@@ -1,3 +1,7 @@
+- name: apt update
+  apt:
+    update_cache: yes
+
 - name: Install Nginx
   apt:
     name: nginx
@@ -11,3 +15,9 @@
     owner: www-data
     group: www-data
     mode: 0644
+
+- name: Enable and start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
