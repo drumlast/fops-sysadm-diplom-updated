@@ -8,13 +8,24 @@
     state: present
     update_cache: yes
 
-- name: Deploy static site files
-  copy:
-    src: files/
-    dest: /var/www/html/
+- name: Gather system facts
+  setup:
+
+- name: Set disk size variable (первый доступный диск)
+  set_fact:
+    disk_size: "{{ ansible_devices | dict2items | selectattr('value.host','defined') | map(attribute='value.size') | list | first }}"
+
+- name: Set RAM size variable
+  set_fact:
+    ram_size: "{{ ansible_memtotal_mb }} MB"
+
+- name: Deploy rendered index.html
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
     owner: www-data
     group: www-data
-    mode: 0644
+    mode: '0644'
 
 - name: Enable and start nginx
   service:
