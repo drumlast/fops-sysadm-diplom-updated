@@ -1,3 +1,7 @@
+output "nat_internal_ip" {
+  value = yandex_compute_instance.nat.network_interface[0].ip_address
+}
+
 terraform {
   required_providers {
     yandex = {
