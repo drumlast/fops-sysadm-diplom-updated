@@ -21,3 +21,6 @@
 
 ###### Grafana
 ![Grafana](img/7.png)
+
+###### Elasticsearch
+![Elasticsearch](img/8.png)

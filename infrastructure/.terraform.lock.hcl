@@ -1,0 +1,42 @@
+# This file is maintained automatically by "terraform init".
+# Manual edits may be lost in future updates.
+
+provider "registry.terraform.io/hashicorp/null" {
+  version = "3.2.4"
+  hashes = [
+    "h1:hkf5w5B6q8e2A42ND2CjAvgvSN3puAosDmOJb3zCVQM=",
+    "zh:59f6b52ab4ff35739647f9509ee6d93d7c032985d9f8c6237d1f8a59471bbbe2",
+    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
+    "zh:795c897119ff082133150121d39ff26cb5f89a730a2c8c26f3a9c1abf81a9c43",
+    "zh:7b9c7b16f118fbc2b05a983817b8ce2f86df125857966ad356353baf4bff5c0a",
+    "zh:85e33ab43e0e1726e5f97a874b8e24820b6565ff8076523cc2922ba671492991",
+    "zh:9d32ac3619cfc93eb3c4f423492a8e0f79db05fec58e449dee9b2d5873d5f69f",
+    "zh:9e15c3c9dd8e0d1e3731841d44c34571b6c97f5b95e8296a45318b94e5287a6e",
+    "zh:b4c2ab35d1b7696c30b64bf2c0f3a62329107bd1a9121ce70683dec58af19615",
+    "zh:c43723e8cc65bcdf5e0c92581dcbbdcbdcf18b8d2037406a5f2033b1e22de442",
+    "zh:ceb5495d9c31bfb299d246ab333f08c7fb0d67a4f82681fbf47f2a21c3e11ab5",
+    "zh:e171026b3659305c558d9804062762d168f50ba02b88b231d20ec99578a6233f",
+    "zh:ed0fe2acdb61330b01841fa790be00ec6beaac91d41f311fb8254f74eb6a711f",
+  ]
+}
+
+provider "registry.terraform.io/yandex-cloud/yandex" {
+  version     = "0.145.0"
+  constraints = ">= 0.87.0"
+  hashes = [
+    "h1:uXaDhcdsCcjx3BLc/5RYBmHnP8kTj1OeOXP4kd/fG5Q=",
+    "zh:130c90e7013fa5f8e2fb4ee2e5e2454ac0faf6e677989bf33b294e80e2c47bb1",
+    "zh:20f37a2f13037b1926831d1635e802fc31fd4612ee6e3948c2ce8137de942a24",
+    "zh:3da9e0599dbf377d20b3dcee201fcd3d5a14a1cbc79e1cb0ca6a1f84233d48be",
+    "zh:4fc3339bbbcfe083dd34cf72dedc57196fe24fe0d9508d79ca7293c7ab41c93a",
+    "zh:584943226c82ad2277d15b8c9f7dc2235a67c0dc96df2009bf9f30801e103149",
+    "zh:656c8639fc221edbac7589a402e2a8f65a23e760bd82d4b262ba2ab957bd0f8c",
+    "zh:6736643c697019c902803d71b22def71f5f8aa7d9586375ebbb24b925799d85d",
+    "zh:75d6d0ca56e4d964296deb1eed4a498b3c957e1461b0241315262b614e2d3334",
+    "zh:9da16f00e7a67c013a1df48830eb95018d18f4a66ca7c94f68c2a05992d29db3",
+    "zh:c0186495f013fea4ac0f583b5e083814cbc02cf737e8c569e235c688a1a4401e",
+    "zh:eb51164513adeb935742acde4688f155357915d4fed52e80ff04164f99af5be4",
+    "zh:f41bf6d9d5f0aed9959535cf20456ac69f8c88e2282b152f4450c16abcab2fe9",
+    "zh:fc445159dbe1023c007b162f95a7de465b8198ca9818968a713673761f26e992",
+  ]
+}
