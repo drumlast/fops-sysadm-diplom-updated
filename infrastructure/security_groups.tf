@@ -60,6 +60,13 @@ resource "yandex_vpc_security_group" "web" {
   }
 
   ingress {
+    protocol       = "TCP"
+    description    = "HTTP from ALB"
+    v4_cidr_blocks = ["10.10.1.0/24"]
+    port           = 80
+  }
+
+  ingress {
     protocol       = "ICMP"
     description    = "Allow ICMP from NAT"
     v4_cidr_blocks = ["10.10.1.0/24"]
