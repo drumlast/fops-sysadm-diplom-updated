@@ -67,6 +67,14 @@ resource "yandex_vpc_security_group" "web" {
   }
 
   ingress {
+    protocol       = "ANY"
+    description    = "FROM PROMETHEUS"
+    v4_cidr_blocks = ["10.10.2.0/24"]
+    from_port      = 9100
+    to_port        = 9113
+  }
+  
+  ingress {
     protocol       = "ICMP"
     description    = "Allow ICMP from NAT"
     v4_cidr_blocks = ["10.10.1.0/24"]
