@@ -10,8 +10,8 @@
 
 - name: Install Nginx Log Exporter
   community.docker.docker_container:
-    name: adam21b/nginxlogexporter
-    image: kikill95/nginx-log-exporter
+    name: nginx-log-exporter
+    image: nginx/nginx-prometheus-exporter
     ports:
       - "9113:9113"
     restart_policy: always
