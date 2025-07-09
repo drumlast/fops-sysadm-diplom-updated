@@ -4,7 +4,7 @@ global:
 scrape_configs:
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['web-1:9100', 'web-2:9100']
+      - targets: ['10.10.2.25:9100', '10.10.2.19:9100']
   - job_name: 'nginx_log_exporter'
     static_configs:
-      - targets: ['web-1:9113', 'web-2:9113']
+      - targets: ['10.10.2.25:9113', '10.10.2.19:9113']
