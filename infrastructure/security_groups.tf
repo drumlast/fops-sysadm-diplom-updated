@@ -78,15 +78,25 @@ resource "yandex_vpc_security_group" "alb_sg" {
   name       = "alb-sg"
   network_id = yandex_vpc_network.main.id
 
+  // Health-checks от ALB
   ingress {
     protocol       = "TCP"
-    description    = "Allow HTTP from ALB and bastion"
+    description    = "Health checks from ALB nodes"
+    port           = 30080
+    predefined_target = "loadbalancer_healthchecks"
+  }
+
+  // Входящий HTTP трафик от клиентов
+  ingress {
+    protocol       = "ANY"
+    description    = "Allow inbound HTTP traffic"
     port           = 80
-    v4_cidr_blocks = ["10.10.1.0/24", "10.10.2.0/24"]
+    v4_cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
     protocol       = "ANY"
-    v4_cidr_blocks = ["0.0.0.0/0"]
+    description    = "Allow outbound traffic to backend"
+    v4_cidr_blocks = ["10.10.2.0/24"]
   }
 }
