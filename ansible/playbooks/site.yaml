@@ -2,6 +2,7 @@
   become: true
   roles:
     - nginx
+    - filebeat
 
 - hosts: monitoring
   become: true
@@ -14,4 +15,3 @@
   roles:
     - elasticsearch
     - kibana
-    - filebeat
