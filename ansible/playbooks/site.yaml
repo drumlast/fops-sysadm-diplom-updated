@@ -3,6 +3,7 @@
   roles:
     - nginx
     - filebeat
+    - exporters
 
 - hosts: monitoring
   become: true
